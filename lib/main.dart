@@ -1,3 +1,6 @@
+import 'package:findr/pages/login.dart';
+import 'package:findr/pages/selectJob.dart';
+import 'package:findr/pages/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const MaterialApp(
+      home: LoginPage(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }

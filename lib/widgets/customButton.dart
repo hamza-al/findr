@@ -9,7 +9,6 @@ class CustomButton extends StatelessWidget {
 
   // ignore: use_key_in_widget_constructors
   const CustomButton({required this.color, required this.text});
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -17,9 +16,9 @@ class CustomButton extends StatelessWidget {
     double height = size.height;
     return Container(
       height: height / 10,
-      width: width / 2.5,
+      width: width * 0.9,
       decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
+          BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
       child: Center(
         child: Text(
           text,
