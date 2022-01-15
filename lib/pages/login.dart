@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:findr/styles.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
                       ))),
             ),
             Container(
-              child:
-                  TextBox(hint: "Email", icon: Icons.email, isPassword: false),
+              child: CustomText(
+                  hint: "Email", icon: Icons.email, isPassword: false),
             )
           ],
         ));

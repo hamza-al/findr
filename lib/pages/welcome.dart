@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:findr/pages/login.dart';
+import 'package:findr/pages/signup.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:flutter/material.dart';
@@ -65,9 +66,17 @@ class WelcomePage extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const LoginPage()));
               },
-              child: CustomButton(
-                color: accentOne,
-                text: 'Join us',
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignupPage()));
+                },
+                child: CustomButton(
+                  color: accentOne,
+                  text: 'Join us',
+                ),
               ),
             )),
           ),

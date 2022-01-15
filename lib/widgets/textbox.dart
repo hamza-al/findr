@@ -4,21 +4,21 @@ import 'package:findr/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TextBox extends StatefulWidget {
+class CustomText extends StatefulWidget {
   final String hint;
   final bool isPassword;
   final IconData icon;
-  const TextBox({
+  const CustomText({
     required this.hint,
     required this.icon,
     required this.isPassword,
   });
 
   @override
-  _TextBoxState createState() => _TextBoxState();
+  _CustomTextState createState() => _CustomTextState();
 }
 
-class _TextBoxState extends State<TextBox> {
+class _CustomTextState extends State<CustomText> {
   bool visible = true;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _TextBoxState extends State<TextBox> {
             color: Colors.white.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.white.withOpacity(0.2))),
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: EdgeInsets.only(top: 15),
         padding: EdgeInsets.symmetric(horizontal: 10),
         height: height / 17,
         width: width * 0.9,

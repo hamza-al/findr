@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
     double width = size.width;
     double height = size.height;
     return Container(
-      height: height / 10,
+      height: height / 12,
       width: width * 0.9,
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
