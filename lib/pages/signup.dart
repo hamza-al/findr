@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:findr/pages/nav.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/textbox.dart';
@@ -49,9 +50,15 @@ class _SignupPageState extends State<SignupPage> {
             CustomText(
                 hint: 'Repeat password', icon: Icons.lock, isPassword: true),
             Expanded(child: Container()),
-            CustomButton(
-              color: accentOne,
-              text: 'Sign Up',
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Nav()));
+              },
+              child: CustomButton(
+                color: accentOne,
+                text: 'Sign Up',
+              ),
             ),
             Container(
               height: 100,
