@@ -10,6 +10,10 @@ class SignupPage extends StatefulWidget {
 class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        margin: EdgeInsets.only(top: 70, left: 15),
+      ),
+    );
   }
 }

@@ -19,6 +19,7 @@ class TextBox extends StatefulWidget {
 }
 
 class _TextBoxState extends State<TextBox> {
+  bool visible = true;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -40,8 +41,25 @@ class _TextBoxState extends State<TextBox> {
             cursorColor: accentOne,
             style: GoogleFonts.poppins(
                 color: Colors.white, fontWeight: FontWeight.w400, fontSize: 15),
-            obscureText: widget.isPassword,
+            obscureText: widget.isPassword && visible,
             decoration: InputDecoration(
+                suffixIcon: (widget.isPassword
+                    ? ((visible)
+                        ? GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                visible = !visible;
+                              });
+                            },
+                            child: Icon(Icons.visibility_off, color: accentOne))
+                        : GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                visible = !visible;
+                              });
+                            },
+                            child: Icon(Icons.visibility, color: accentOne)))
+                    : null),
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 hintText: widget.hint,
