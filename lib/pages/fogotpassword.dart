@@ -1,20 +1,19 @@
 // ignore_for_file: sized_box_for_whitespace, avoid_unnecessary_containers, prefer_const_constructors
-
-import 'package:findr/pages/fogotpassword.dart';
+import 'package:findr/pages/signup.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:findr/widgets/textbox.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Login 🔓',
+              'Forgot password? 🙄',
               style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -34,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               margin: EdgeInsets.only(top: 10),
               child: Text(
-                "Welcome back to Findr, we've missed you!",
+                "We will send a password reset link to your email",
                 textAlign: TextAlign.start,
                 style: GoogleFonts.poppins(
                     color: Colors.grey,
@@ -42,12 +41,12 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 15),
               ),
             ),
-            CustomText(hint: 'Email', icon: Icons.email, isPassword: false),
-            CustomText(hint: 'Password', icon: Icons.lock, isPassword: true),
+            CustomText(
+                hint: 'Enter Email', icon: Icons.email, isPassword: false),
             Expanded(child: Container()),
             CustomButton(
               color: accentOne,
-              text: 'Log In',
+              text: 'Send Recovery E-mail',
             ),
             Container(
               height: 100,
@@ -55,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Forgot Password ',
+                    'Back to Signup? ',
                     style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
@@ -66,8 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>
-                                  const ForgotPasswordPage()));
+                              builder: (context) => const SignupPage()));
                     },
                     child: Text(
                       'Click Here',
