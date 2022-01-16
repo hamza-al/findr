@@ -1,4 +1,5 @@
 import 'package:findr/pages/messagesPage.dart';
+import 'package:findr/pages/profile.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,16 +16,13 @@ List<Widget> pages = [
   Center(
       child: Stack(
     children: [
-      const Center(
-        child: Text(
-          'Bro cmon now',
-          style: TextStyle(color: Colors.white),
-        ),
+      Center(
+        child: Text("Oops, it looks like you've applied\n to all the jobs LOL"),
       ),
       Center(child: Tinder()),
     ],
   )),
-  Container(),
+  ProfilePage(),
 ];
 
 class Nav extends StatefulWidget {
