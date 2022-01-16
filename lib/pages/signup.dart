@@ -4,6 +4,7 @@ import 'package:findr/pages/nav.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/textbox.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,9 +18,16 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController pwController = TextEditingController();
+  TextEditingController pwConfirmController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: bg,
       body: Container(
         margin: EdgeInsets.only(top: 70, left: 15),
@@ -44,16 +52,45 @@ class _SignupPageState extends State<SignupPage> {
                     fontSize: 15),
               ),
             ),
-            CustomText(hint: 'Username', icon: Icons.person, isPassword: false),
-            CustomText(hint: 'Email', icon: Icons.email, isPassword: false),
-            CustomText(hint: 'Password', icon: Icons.lock, isPassword: true),
             CustomText(
-                hint: 'Repeat password', icon: Icons.lock, isPassword: true),
+              hint: 'Full name',
+              icon: Icons.person,
+              isPassword: false,
+              controller: nameController,
+            ),
+            CustomText(
+              hint: 'Email',
+              icon: Icons.email,
+              isPassword: false,
+              controller: emailController,
+            ),
+            CustomText(
+              hint: 'Password',
+              icon: Icons.lock,
+              isPassword: true,
+              controller: pwController,
+            ),
+            CustomText(
+              hint: 'Repeat password',
+              icon: Icons.lock,
+              isPassword: true,
+              controller: pwConfirmController,
+            ),
             Expanded(child: Container()),
             GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Nav()));
+              onTap: () async {
+                try {
+                  final newUser = await _auth.createUserWithEmailAndPassword(
+                      email: emailController.text, password: pwController.text);
+                  if (newUser != null) {
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => Nav()),
+                        (route) => false);
+                  }
+                } catch (e) {
+                  print(e.toString());
+                }
               },
               child: CustomButton(
                 color: accentOne,

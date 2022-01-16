@@ -7,12 +7,13 @@ import 'package:google_fonts/google_fonts.dart';
 class CustomText extends StatefulWidget {
   final String hint;
   final bool isPassword;
+  final TextEditingController controller;
   final IconData icon;
-  const CustomText({
-    required this.hint,
-    required this.icon,
-    required this.isPassword,
-  });
+  const CustomText(
+      {required this.hint,
+      required this.icon,
+      required this.isPassword,
+      required this.controller});
 
   @override
   _CustomTextState createState() => _CustomTextState();
@@ -37,6 +38,7 @@ class _CustomTextState extends State<CustomText> {
         width: width * 0.9,
         child: Center(
           child: TextField(
+            controller: widget.controller,
             textAlign: TextAlign.start,
             cursorColor: accentOne,
             style: GoogleFonts.poppins(

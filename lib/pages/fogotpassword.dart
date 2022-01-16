@@ -42,7 +42,10 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               ),
             ),
             CustomText(
-                hint: 'Enter Email', icon: Icons.email, isPassword: false),
+                controller: TextEditingController(),
+                hint: 'Enter Email',
+                icon: Icons.email,
+                isPassword: false),
             Expanded(child: Container()),
             CustomButton(
               color: accentOne,

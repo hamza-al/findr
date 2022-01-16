@@ -1,20 +1,43 @@
+import 'package:findr/pages/messagesPage.dart';
 import 'package:findr/styles.dart';
+import 'package:findr/widgets/customCard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-var titles = ["Messages", 'Home', 'Profile'];
+var titles = [
+  "Messages",
+  'Home',
+  'Profile',
+];
+List<Widget> pages = [
+  MessagesPage(),
+  Center(
+      child: Stack(
+    children: [
+      const Center(
+        child: Text(
+          'Bro cmon now',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      Center(child: Tinder()),
+    ],
+  )),
+  Container(),
+];
 
 class Nav extends StatefulWidget {
-  const Nav({Key? key}) : super(key: key);
-
   @override
   _NavState createState() => _NavState();
 }
 
 class _NavState extends State<Nav> {
   int _index = 0;
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
+    print(_auth.currentUser!.email);
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
@@ -62,6 +85,7 @@ class _NavState extends State<Nav> {
           ),
         ],
       ),
+      body: pages[_index],
     );
   }
 }
