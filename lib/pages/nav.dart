@@ -17,7 +17,11 @@ List<Widget> pages = [
       child: Stack(
     children: [
       Center(
-        child: Text("Oops, it looks like you've applied\n to all the jobs LOL"),
+        child: Text(
+          "Oops, it looks like you've applied\n to all the jobs LOL",
+          style: GoogleFonts.poppins(
+              color: Colors.grey, fontWeight: FontWeight.w400, fontSize: 15),
+        ),
       ),
       Center(child: Tinder()),
     ],
@@ -31,7 +35,7 @@ class Nav extends StatefulWidget {
 }
 
 class _NavState extends State<Nav> {
-  int _index = 0;
+  int _index = 1;
   final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {

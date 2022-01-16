@@ -69,7 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       margin: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width / 10),
                       child: Text(
-                        'SWE at Facebook',
+                        'Unemployed',
                         style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -111,7 +111,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 margin:
                     EdgeInsets.only(top: 10, left: 10, bottom: 15, right: 20),
                 child: Text(
-                  "Hey, I am an aspiriring software engineer living in the Bay Area. I finished my computer science degree from McMaster and currently work as a software engineer at Facebook",
+                  'Edit profile to add About me section',
+                  // "Hey, I am an aspiriring software engineer living in the Bay Area. I finished my computer science degree from McMaster and currently work as a software engineer at Facebook",
                   textAlign: TextAlign.justify,
                   style: GoogleFonts.poppins(
                       color: Colors.white,
