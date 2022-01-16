@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:findr/pages/nav.dart';
-import 'package:findr/pages/selectJob.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/textbox.dart';
@@ -10,26 +9,26 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'login.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({Key? key}) : super(key: key);
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({Key? key}) : super(key: key);
 
   @override
-  _SignupPageState createState() => _SignupPageState();
+  _EditProfilePageState createState() => _EditProfilePageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: bg,
       body: Container(
-        margin: EdgeInsets.only(top: 70, left: 15),
+        margin: EdgeInsets.only(top: 70),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Welcome to Findr! 👋',
+              'Profile Editor',
               style: GoogleFonts.poppins(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -38,7 +37,7 @@ class _SignupPageState extends State<SignupPage> {
             Container(
               margin: EdgeInsets.only(top: 10),
               child: Text(
-                "We're glad to see you've chosen Findr! Sign up below to continue",
+                "Make your changes below:",
                 textAlign: TextAlign.start,
                 style: GoogleFonts.poppins(
                     color: Colors.grey,
@@ -47,19 +46,20 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
             CustomText(hint: 'Username', icon: Icons.person, isPassword: false),
-            CustomText(hint: 'Email', icon: Icons.email, isPassword: false),
-            CustomText(hint: 'Password', icon: Icons.lock, isPassword: true),
-            CustomText(
-                hint: 'Repeat password', icon: Icons.lock, isPassword: true),
+            CustomText(hint: 'Position', icon: Icons.email, isPassword: false),
+            CustomText(hint: 'Company', icon: Icons.add_box_sharp, isPassword: false),
+            CustomText(hint: 'Skills', icon: Icons.add, isPassword: false),
+            CustomText(hint: 'Experience', icon: Icons.grading, isPassword: false),
+
             Expanded(child: Container()),
             GestureDetector(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const SelectJob()));
+                    MaterialPageRoute(builder: (context) => const Nav()));
               },
               child: CustomButton(
                 color: accentOne,
-                text: 'Sign Up',
+                text: 'Save and return',
               ),
             ),
             Container(

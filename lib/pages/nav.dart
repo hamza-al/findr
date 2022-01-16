@@ -1,9 +1,14 @@
+import 'package:findr/pages/profile.dart';
 import 'package:findr/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-var titles = ["Messages", 'Home', 'Profile'];
-
+var titles = ["Messages", 'Home', 'My Profile'];
+List<Widget> pages =  [
+  Container(),
+  Container(),
+  ProfilePage()
+];
 class Nav extends StatefulWidget {
   const Nav({Key? key}) : super(key: key);
 
@@ -16,10 +21,13 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: pages[_index],
       appBar: AppBar(
         leading: Container(),
         title: Text(
           titles[_index],
+          textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
               fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
         ),

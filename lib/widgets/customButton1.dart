@@ -3,20 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButton1 extends StatelessWidget {
   final Color color;
   final String text;
 
   // ignore: use_key_in_widget_constructors
-  const CustomButton({required this.color, required this.text});
+  const CustomButton1({required this.color, required this.text});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double width = size.width;
     double height = size.height;
     return Container(
-      height: height / 20,
-      width: width * 0.9,
+      height: height / 23,
+      width: width * 0.4,
+      margin: EdgeInsets.only(top: 20),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
       child: Center(

@@ -17,6 +17,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: bg,
       body: Container(
         margin: EdgeInsets.only(top: 70, left: 15),

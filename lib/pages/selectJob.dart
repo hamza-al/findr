@@ -6,6 +6,8 @@ import 'package:findr/widgets/customTile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'nav.dart';
+
 const List<List<String>> interests = [
   ["💻", "Artificial Intelligence"],
   ["🖲", "Machine Learning"],
@@ -32,10 +34,13 @@ class _SelectJobState extends State<SelectJob> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
         backgroundColor: accentOne,
-        onPressed: () {},
-        mini: true,
+        onPressed: () {
+          Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Nav()));
+                    },
         child: Icon(
           Icons.arrow_forward,
           color: bg,
