@@ -27,7 +27,9 @@ class _CustomTileState extends State<CustomTile> {
           isTapped = !isTapped;
         });
       },
-      child: Container(
+      child: AnimatedContainer(
+        curve: Curves.fastLinearToSlowEaseIn,
+        duration: Duration(seconds: 1),
         padding: EdgeInsets.symmetric(horizontal: 10),
         margin: EdgeInsets.only(right: 15, bottom: 15),
         height: height / 7,

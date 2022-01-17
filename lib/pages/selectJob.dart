@@ -39,7 +39,7 @@ class _SelectJobState extends State<SelectJob> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Nav()));
         },
-        mini: true,
+        mini: false,
         child: Icon(
           Icons.arrow_forward,
           color: bg,
