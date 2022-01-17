@@ -106,7 +106,8 @@ class _SignupPageState extends State<SignupPage> {
                         if (newUser != null) {
                           Navigator.pushAndRemoveUntil(
                               context,
-                              MaterialPageRoute(builder: (context) => Nav()),
+                              MaterialPageRoute(
+                                  builder: (context) => SelectJob()),
                               (route) => false);
                         }
                       } catch (e) {
@@ -218,7 +219,8 @@ class _SignupPageState extends State<SignupPage> {
                         if (newUser != null) {
                           Navigator.pushAndRemoveUntil(
                               context,
-                              MaterialPageRoute(builder: (context) => Nav()),
+                              MaterialPageRoute(
+                                  builder: (context) => SelectJob()),
                               (route) => false);
                         }
                       } catch (e) {

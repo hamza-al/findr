@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:findr/pages/nav.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/customTile.dart';
@@ -34,7 +35,10 @@ class _SelectJobState extends State<SelectJob> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: accentOne,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Nav()));
+        },
         mini: true,
         child: Icon(
           Icons.arrow_forward,

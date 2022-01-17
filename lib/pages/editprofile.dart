@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:findr/pages/nav.dart';
+import 'package:findr/pages/selectJob.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/textbox.dart';
@@ -23,7 +24,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: bg,
       body: Container(
-        margin: EdgeInsets.only(top: 70),
+        margin: EdgeInsets.only(top: 70, left: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -71,7 +72,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
               isPassword: false,
               controller: TextEditingController(),
             ),
-            Expanded(child: Container()),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SelectJob()));
+              },
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: 20),
+                child: CustomButton(
+                  color: accentOne,
+                  text: 'Edit Skills',
+                ),
+              ),
+            ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -82,36 +95,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 text: 'Save and return',
               ),
             ),
-            Container(
-              height: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Already a member? ',
-                    style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginPage()));
-                    },
-                    child: Text(
-                      'Sign in.',
-                      style: GoogleFonts.poppins(
-                          color: accentOne,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 13),
-                    ),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),
