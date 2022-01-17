@@ -39,7 +39,6 @@ class _NavState extends State<Nav> {
   final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    print(_auth.currentUser!.email);
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
@@ -57,12 +56,14 @@ class _NavState extends State<Nav> {
         type: BottomNavigationBarType.fixed,
         elevation: 0,
         selectedFontSize: 10,
-        unselectedFontSize: 0,
+        unselectedFontSize: 10,
         selectedItemColor: accentOne,
-        unselectedItemColor: Colors.grey,
+        unselectedItemColor: bg,
         selectedIconTheme: const IconThemeData(color: accentOne),
         unselectedIconTheme: const IconThemeData(color: Colors.grey),
         selectedLabelStyle:
+            GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.w900),
+        unselectedLabelStyle:
             GoogleFonts.poppins(fontSize: 10, fontWeight: FontWeight.w900),
         showUnselectedLabels: true,
         showSelectedLabels: true,

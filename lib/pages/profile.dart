@@ -5,6 +5,7 @@ import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/customButton1.dart';
 import 'package:findr/widgets/profileText.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:findr/widgets/textbox.dart';
@@ -29,6 +30,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth _auth = FirebaseAuth.instance;
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: bg,
@@ -41,8 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Container(
                   child: Row(children: [
                 Container(
-                    margin: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width / 10),
+                    margin: EdgeInsets.only(left: 10),
                     child: CircleAvatar(
                       child: Icon(
                         Icons.person,
@@ -50,33 +51,37 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: accentOne,
                       ),
                       backgroundColor: Colors.white.withOpacity(0.1),
-                      radius: 45,
+                      radius: 40,
                     )),
-                Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 10),
-                      child: Text(
-                        'Jaden Mathias',
-                        style: GoogleFonts.poppins(
-                            color: accentOne,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20),
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width / 10),
+                        child: Text(
+                          'Hamza Al Sorkhy',
+                          style: GoogleFonts.poppins(
+                              color: accentOne,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20),
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width / 10),
-                      child: Text(
-                        'Unemployed',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15),
-                      ),
-                    )
-                  ],
+                      Container(
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width / 10),
+                        child: Text(
+                          'Unemployed',
+                          style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Expanded(
                     child: GestureDetector(

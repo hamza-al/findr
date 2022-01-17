@@ -8,17 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const List<List<String>> interests = [
-  ["💻", "Artificial Intelligence"],
-  ["🖲", "Machine Learning"],
-  ["🕹", "Internet of Things"],
-  ["📟", "Big Data"],
-  ["📱", "Mobile"],
-  ["🎮", "Game Development"],
+  ["💻", "Software Engineering"],
+  ["👔", "Retail"],
+  ["🧪", "STEM"],
   ["📊", "Data Science"],
   ["👾", "AR/VR"],
   ["🌐", "Web development"],
   ["💳", "E-commerce"],
-  ["🧱", "Product Design"],
+  ["🧱", "Graphic Design"],
   ["🏧", "Finance"],
 ];
 
