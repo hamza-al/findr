@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:findr/firebase.dart';
 import 'package:findr/pages/nav.dart';
 import 'package:findr/pages/selectJob.dart';
 import 'package:findr/styles.dart';
@@ -26,6 +27,11 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController nameController = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool personal = true;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +109,9 @@ class _SignupPageState extends State<SignupPage> {
                             await _auth.createUserWithEmailAndPassword(
                                 email: emailController.text,
                                 password: pwController.text);
+
                         if (newUser != null) {
+                          await addUser(nameController.text);
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(

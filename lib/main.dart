@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
     FirebaseAuth _auth = FirebaseAuth.instance;
 
     return MaterialApp(
+      routes: {
+        'welcome': (context) => const WelcomePage(),
+      },
       home: (_auth.currentUser == null) ? const WelcomePage() : Nav(),
       debugShowCheckedModeBanner: false,
     );

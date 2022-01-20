@@ -1,5 +1,6 @@
 import 'package:findr/pages/messagesPage.dart';
 import 'package:findr/pages/profile.dart';
+import 'package:findr/pages/welcome.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customCard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,6 +41,13 @@ class _NavState extends State<Nav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _auth.signOut();
+          Navigator.pushNamedAndRemoveUntil(
+              context, 'welcome', (route) => false);
+        },
+      ),
       appBar: AppBar(
         leading: Container(),
         title: Text(

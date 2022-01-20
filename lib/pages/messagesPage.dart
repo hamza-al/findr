@@ -1,5 +1,6 @@
 import 'package:findr/widgets/chatIcon.dart';
 import 'package:findr/widgets/textbox.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MessagesPage extends StatelessWidget {
@@ -11,13 +12,8 @@ class MessagesPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 10, left: 15),
-          child: CustomText(
-              hint: 'Search',
-              icon: Icons.search,
-              isPassword: false,
-              controller: TextEditingController()),
-        ),
+            margin: EdgeInsets.only(bottom: 10, left: 15),
+            child: CupertinoSearchTextField()),
         Container(
           height: 1,
           width: double.infinity,

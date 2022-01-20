@@ -4,6 +4,7 @@ import 'package:findr/pages/nav.dart';
 import 'package:findr/styles.dart';
 import 'package:findr/widgets/customButton.dart';
 import 'package:findr/widgets/customTile.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +19,8 @@ const List<List<String>> interests = [
   ["🧱", "Graphic Design"],
   ["🏧", "Finance"],
 ];
+
+List<String> selected = [];
 
 class SelectJob extends StatefulWidget {
   const SelectJob({Key? key}) : super(key: key);
@@ -71,9 +74,15 @@ class _SelectJobState extends State<SelectJob> {
                 childAspectRatio: 1.7,
                 crossAxisCount: 2,
                 children: interests
-                    .map((e) => CustomTile(
-                          emoji: e[0],
-                          text: e[1],
+                    .map((e) => GestureDetector(
+                          onTap: () {
+                            selected.add(e[1]);
+                            print(selected);
+                          },
+                          child: CustomTile(
+                            emoji: e[0],
+                            text: e[1],
+                          ),
                         ))
                     .toList(),
               ),
