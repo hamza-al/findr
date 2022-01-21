@@ -74,8 +74,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SelectJob()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SelectJob(personal: true)));
               },
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 20),

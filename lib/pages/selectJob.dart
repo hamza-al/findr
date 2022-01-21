@@ -8,6 +8,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../firebase.dart';
+
 const List<List<String>> interests = [
   ["💻", "Software Engineering"],
   ["👔", "Retail"],
@@ -23,7 +25,10 @@ const List<List<String>> interests = [
 List<String> selected = [];
 
 class SelectJob extends StatefulWidget {
-  const SelectJob({Key? key}) : super(key: key);
+  final bool personal;
+  SelectJob({
+    required this.personal,
+  });
 
   @override
   _SelectJobState createState() => _SelectJobState();
@@ -78,6 +83,7 @@ class _SelectJobState extends State<SelectJob> {
                           onTap: () {
                             selected.add(e[1]);
                             print(selected);
+                            addInterests(selected, widget.personal);
                           },
                           child: CustomTile(
                             emoji: e[0],
