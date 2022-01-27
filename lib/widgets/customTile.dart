@@ -7,8 +7,13 @@ import 'package:findr/styles.dart';
 class CustomTile extends StatefulWidget {
   final String emoji;
   final String text;
+  final Function func;
 
-  const CustomTile({required this.text, required this.emoji});
+  const CustomTile({
+    required this.text,
+    required this.emoji,
+    required this.func,
+  });
 
   @override
   State<CustomTile> createState() => _CustomTileState();
@@ -25,6 +30,7 @@ class _CustomTileState extends State<CustomTile> {
       onTap: () {
         setState(() {
           isTapped = !isTapped;
+          widget.func();
         });
       },
       child: AnimatedContainer(

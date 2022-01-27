@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:findr/pages/nav.dart';
 import 'package:findr/styles.dart';
@@ -41,6 +41,7 @@ class _SelectJobState extends State<SelectJob> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: accentOne,
         onPressed: () {
+          addInterests(selected, widget.personal);
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Nav()));
         },
@@ -79,16 +80,17 @@ class _SelectJobState extends State<SelectJob> {
                 childAspectRatio: 1.7,
                 crossAxisCount: 2,
                 children: interests
-                    .map((e) => GestureDetector(
-                          onTap: () {
-                            selected.add(e[1]);
+                    .map((e) => CustomTile(
+                          func: () {
+                            if (!selected.contains(e[1])) {
+                              selected.add(e[1]);
+                            } else {
+                              selected.remove(e[1]);
+                            }
                             print(selected);
-                            addInterests(selected, widget.personal);
                           },
-                          child: CustomTile(
-                            emoji: e[0],
-                            text: e[1],
-                          ),
+                          emoji: e[0],
+                          text: e[1],
                         ))
                     .toList(),
               ),

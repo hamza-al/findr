@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findr/pages/selectJob.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 Future<void> addUser(String firstName) async {
@@ -13,7 +14,7 @@ Future<void> addCompany(String name) async {
       FirebaseFirestore.instance.collection('employers');
   FirebaseAuth auth = FirebaseAuth.instance;
   String uid = auth.currentUser!.uid.toString();
-  users.add({'firstName': name, 'uid': uid});
+  users.add({'firstName': name, 'uid': uid, 'interests': []});
 }
 
 Future<void> addInterests(List<String> interests, bool isUser) async {
@@ -22,7 +23,7 @@ Future<void> addInterests(List<String> interests, bool isUser) async {
       : FirebaseFirestore.instance.collection('employers');
   FirebaseAuth auth = FirebaseAuth.instance;
   String uId = auth.currentUser!.uid;
-  users.doc(uId).set({
+  users.doc(uId).update({
     'interests': interests,
   });
 }
